@@ -1,0 +1,26 @@
+* {
+    margin:0;
+    padding:0;
+}
+header {
+    background-color: #242323;
+    height:50px;
+    width:100%;
+    color:white;
+    text-align:center;
+    box-sizing: border-box;
+    padding-top:5px;
+}
+
+main {
+    display:flex;
+    justify-content:center;
+    padding-top:20px;
+}
+button {
+    color:white;
+    background:#1E90FF;
+    border:none;
+    padding:5px;
+    border-radius:5px;
+}
