@@ -7,8 +7,6 @@ export const axiosInstance: AxiosInstance = axios.create({
     headers: {
         "Content-type": "application/json",
         locale: "en",
-        "secret-key": process.env.REACT_APP_SECRET_KEY,
-        "client-id": process.env.REACT_APP_CLIENT_ID,
         "access-token": localStorage.getItem("accessToken"),
     },
 });
