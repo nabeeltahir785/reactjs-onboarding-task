@@ -19,5 +19,3 @@ const throwError = (error:any)=>{
 }
 
 export default apiCall;
-
-
