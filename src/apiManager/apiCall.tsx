@@ -13,7 +13,6 @@ const apiCall = (method:string, url:string, data:string)=>{
         })
     });
 }
-
 const throwError = (error:any)=>{
     new Error("Something went wrong");
 }
