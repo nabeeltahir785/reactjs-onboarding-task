@@ -1,20 +1,28 @@
-const axios = require('axios');
+import { axiosInstance } from "./axiosInstance";
+import { AxiosResponse } from "axios";
 
-const apiCall = (method:string, url:string, data:string)=>{
-    return new Promise((resolve,reject)=>{
-        axios[method](
-            url,
-            data
-        ).then((response:any)=>{
-            resolve(response);
-        }).catch((error:any)=>{
-            reject(error)
-            throwError(error);
-        })
-    });
-}
-const throwError = (error:any)=>{
-    new Error("Something went wrong");
-}
+type axiosMethodTypes = "GET" | "POST" | "DELETE" | "PUT" | "PATCH";
 
-export default apiCall;
+const apiManager = {
+    request: async (
+        url: string,
+        body: unknown,
+        method: axiosMethodTypes,
+        baseURL = ""
+    ): Promise<AxiosResponse | never> => {
+        try {
+            return axiosInstance({
+                method: method,
+                url: baseURL + url,
+                data: body,
+            });
+        } catch (e) {
+            if (e instanceof Error) {
+                throw new Error(e.message);
+            } else {
+                throw new Error("An Error Occurred");
+            }
+        }
+    },
+};
+export default apiManager;
